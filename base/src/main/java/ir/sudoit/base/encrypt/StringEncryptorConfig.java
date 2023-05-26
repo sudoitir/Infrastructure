@@ -3,18 +3,23 @@ package ir.sudoit.base.encrypt;
 import org.jasypt.encryption.StringEncryptor;
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
 import org.jasypt.encryption.pbe.config.SimpleStringPBEConfig;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
+@PropertySource (value = "classpath:encryption.yml", ignoreResourceNotFound = true)
 public class StringEncryptorConfig {
 
+    @Value ("${encryption.password:123}")
+    private String password;
 
     @Bean ("jasyptStringEncryptor")
     public StringEncryptor stringEncryptor() {
         var encryptor = new PooledPBEStringEncryptor();
         var config = new SimpleStringPBEConfig();
-        config.setPassword("753357");
+        config.setPassword(password);
         config.setAlgorithm("PBEWITHHMACSHA512ANDAES_256");
         config.setKeyObtentionIterations("1000");
         config.setPoolSize("1");
