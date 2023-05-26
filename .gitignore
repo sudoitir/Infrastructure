@@ -3,7 +3,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-/base/src/main/resources/encryption.yml
+/base/src/main/resources/encryption.properties
 
 ### STS ###
 .apt_generated

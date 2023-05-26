@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.annotation.Order;
 
 @Configuration
-@PropertySource (value = "classpath:encryption.yml", ignoreResourceNotFound = true)
+@Order (value = Integer.MIN_VALUE)
+@PropertySource (value = "classpath:encryption.properties", ignoreResourceNotFound = true)
 public class StringEncryptorConfig {
 
     @Value ("${encryption.password:123}")
