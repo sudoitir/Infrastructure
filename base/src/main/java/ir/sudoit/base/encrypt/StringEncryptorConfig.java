@@ -1,4 +1,4 @@
-package encrypt;
+package ir.sudoit.base.encrypt;
 
 import org.jasypt.encryption.StringEncryptor;
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
@@ -14,7 +14,7 @@ public class StringEncryptorConfig {
     public StringEncryptor stringEncryptor() {
         var encryptor = new PooledPBEStringEncryptor();
         var config = new SimpleStringPBEConfig();
-        config.setPassword("123");
+        config.setPassword("753357");
         config.setAlgorithm("PBEWITHHMACSHA512ANDAES_256");
         config.setKeyObtentionIterations("1000");
         config.setPoolSize("1");
